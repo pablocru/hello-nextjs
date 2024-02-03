@@ -93,38 +93,38 @@ There are 3 ways to style an app:
   components by default, reducing the risk of styling conflicts" -
   [Next.js](https://nextjs.org/learn/dashboard-app/css-styling#css-modules).
 
-Using CSS Modules I can control the scope of any CSS rule. In this case, they
-provide me the following css:
+  Using CSS Modules I can control the scope of any CSS rule. In this case, they
+  provide me the following css:
 
-```css
-.shape {
-  height: 0;
-  width: 0;
-  border-bottom: 30px solid black;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-}
-```
+  ```css
+  .shape {
+    height: 0;
+    width: 0;
+    border-bottom: 30px solid black;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+  ```
 
-Then I import it in my component and add it to a `<div>` tag:
+  Then I import it in my component and add it to a `<div>` tag:
 
-```jsx
-import styles from '@/app/ui/home.module.css';
+  ```jsx
+  import styles from '@/app/ui/home.module.css';
 
-export default function Page() {
-  return (
-    // [...]
-    <div className={styles.shape} />
-    // [...]
-  );
-}
-```
+  export default function Page() {
+    return (
+      // [...]
+      <div className={styles.shape} />
+      // [...]
+    );
+  }
+  ```
 
-When the page is rendered, I inspect the code and I saw that the class name
-was hashed:
+  When the page is rendered, I inspect the code and I saw that the class name
+  was hashed:
 
-![Class name is hashed to make it
-unique](readme-imgs/css-modules-hashes-class-names.png)
+  ![Class name is hashed to make it
+  unique](readme-imgs/css-modules-hashes-class-names.png)
 
-I guess that by hashing a class name it became unique even if there are
-another class with the same name.
+  I guess that by hashing a class name it became unique even if there are
+  another class with the same name.
