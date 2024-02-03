@@ -64,10 +64,31 @@ First step is done.
 
 ### CSS Styling
 
-There are 2 ways to style an app:
+There are 3 ways to style an app:
 
 - CSS Framework. In this case, `Next.js` recommends
 [Tailwindcss](https://tailwindcss.com/).
+- [clsx](https://github.com/lukeed/clsx#readme) library. Third party library
+  that provides a way to toggle class name depending on some condition.
+
+  ```jsx
+    import clsx from 'clsx';
+    
+    export default function InvoiceStatus({ status }: { status: string }) {
+      return (
+        <span
+          className={clsx(
+            'inline-flex items-center rounded-full px-2 py-1 text-sm',
+            {
+              'bg-gray-100 text-gray-500': status === 'pending',
+              'bg-green-500 text-white': status === 'paid',
+            },
+          )}
+        >
+        // [...]
+    )}
+  ```
+
 - CSS Modules. "Provide a way to make CSS classes locally scoped to
   components by default, reducing the risk of styling conflicts" -
   [Next.js](https://nextjs.org/learn/dashboard-app/css-styling#css-modules).
