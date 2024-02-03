@@ -128,3 +128,42 @@ There are 3 ways to style an app:
 
   I guess that by hashing a class name it became unique even if there are
   another class with the same name.
+
+### Optimizing fonts
+
+`Next.js` improves website performance by downloading all fonts at build time
+and storing them as static files to avoid additional network requests.
+
+You can use any [Google Fonts](https://fonts.google.com/) by importing them from
+`Next.js`. [Variable fonts](https://fonts.google.com/variablefonts) can be used
+without specifying it's width.
+
+```ts
+import { Inter, Lusitana } from 'next/font/google';
+
+export const inter = Inter({ subsets: ['latin'] });
+
+export const lusitana = Lusitana({
+  weight: ['400', '700'],
+  subsets: ['latin']
+});
+```
+
+They can be imported at any part of the application and works like
+`CSS Modules`: you can add them as a class and when the app is rendered, they
+appear hashed.
+
+```jsx
+import { inter } from '@/app/ui/fonts';
+
+export default function MyLayout() {
+  return (
+    <html lang="en">
+      {/* antialiased: Tailwind class to improve font rendering */}
+      <body className={`${inter.className} antialiased`}>{children}</body>
+    </html>
+  );
+}
+```
+
+![Fonts' class name is hashed](readme-imgs/fonts-class-name-is-hashed.png)
