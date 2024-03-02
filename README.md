@@ -167,3 +167,86 @@ export default function MyLayout() {
 ```
 
 ![Fonts' class name is hashed](readme-imgs/fonts-class-name-is-hashed.png)
+
+### Optimizing images
+
+"Image Optimization is a large topic in web development that could be considered
+a specialization in itself" - [Next.js](https://nextjs.org/learn/dashboard-app/optimizing-fonts-images#why-optimize-images)
+
+They provide an `Image Component` that, according to them, automatically
+triggers the following actions:
+
+>- Prevent layout shift when images are loading
+
+It's when the layout moves to fit a new image that is just being loaded.
+
+>- Resizing images to avoid shipping large images to devices with a smaller
+>  viewport. Even for images stored on remote servers.
+
+Sending a big image to a small device doesn't make sense because of loading
+costs. It's better to send the image resized to the actual device width.
+
+>- Lazy loading images by default (images load as they enter the viewport).
+
+This feature increase web page loading time because the client only downloads
+what the user can see. Only scrolling will trigger the download of images that
+are below.
+
+>- Serving images in modern formats, like
+>  [WebP](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#webp)
+>  and
+>  [AVIF](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#avif_image)
+> , when the browser supports it.
+
+WebP and AVIF are image extensions that are optimized to browsers. However, they
+aren't supported in all browsers.
+
+#### Usage
+
+You can find how to use the `Image Component` in [Next.js official docs](https://nextjs.org/docs/app/building-your-application/optimizing/images#usage)
+However, I going to left here a summary using their examples.
+
+##### Import
+
+```jsx
+import Image from 'next/image'
+```
+
+##### Local images
+
+You can use `.jpg`, `.png`, or `.webp` image files.
+
+There are two ways to use local images:
+
+1. Import an image as a static asset.
+
+    This is the simplest way to use this component. At build time, `Next.js`
+    import your image and set it's actual width and height. However, you can
+    specify different sizes.
+
+    ```jsx
+    import Image from 'next/image'
+    import profilePic from './me.png'
+
+    export default function Page() {
+      return <Image src={profilePic} alt="Picture of the author" />
+    }
+    ```
+
+1. Use a relative path inside `src` prop.
+
+    You must specify the image width and height or this will throw an error.
+
+    ```jsx
+    import Image from 'next/image'
+
+    export default function Page() {
+      return (
+        <Image
+          src="/me.png"
+          width={1000}
+          height={760}
+        />
+      )
+    }
+    ```
