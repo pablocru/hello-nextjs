@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "hello-nextjs",
+  "version": "1.0.0",
+  "description": "First approach to Next.js",
+  "author": "Pablo Cru Delhom (pabcrudel)",
+  "license": "MIT",
+  "main": "index.js",
+  "workspaces": [
+    "dashboard-app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabcrudel/hello-nextjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pabcrudel/hello-nextjs/issues"
+  },
+  "homepage": "https://github.com/pabcrudel/hello-nextjs#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
