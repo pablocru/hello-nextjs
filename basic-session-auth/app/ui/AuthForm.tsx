@@ -1,24 +1,32 @@
+import { JWTPayload } from 'jose';
+import { login, logout } from '../lib/auth';
+
 export default function AuthForm ({
-  isAuthenticated = false
+  session
 }: Readonly<{
-  isAuthenticated?: Boolean;
+  session?: JWTPayload;
 }>) {
-  return isAuthenticated ? <Logout/> : <Login />;
+  return (
+    <>
+      {!session && <Login/>}
+      {session && <Logout/>}
+    </>
+  );
 }
 
 function Login () {
   return (
-    <form action="">
-      <input type="email" placeholder="Enter your email" />
-      <input type="submit" value="Login" />
+    <form action={login}>
+      <input type="email" name='email' placeholder="Enter your email" />
+      <input type="submit" name='login' value="Login" />
     </form>
   );
 }
 
 function Logout () {
   return (
-    <form action="">
-      <input type="submit" value="Logout"/>
+    <form action={logout}>
+      <input type="submit" name='logout' value="Logout"/>
     </form>
   );
 }
