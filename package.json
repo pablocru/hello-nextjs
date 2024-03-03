@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/pabcrudel/hello-nextjs#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^1.3.1"
   }
 }
