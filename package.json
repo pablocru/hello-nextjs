@@ -7,7 +7,8 @@
   "license": "MIT",
   "main": "index.js",
   "workspaces": [
-    "dashboard-app"
+    "dashboard-app",
+    "basic-session-auth"
   ],
   "repository": {
     "type": "git",
