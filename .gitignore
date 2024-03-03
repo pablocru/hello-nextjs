@@ -1,0 +1,16 @@
+# Inspired on Node's Gitignore template:
+# - https://github.com/github/gitignore/blob/main/Node.gitignore
+
+# Dependency directories
+node_modules
+
+# Logs
+logs
+*.log*
+
+# Next.js build output
+.next
+out
+
+# Dotenv environment variable files
+.env*
