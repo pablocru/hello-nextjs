@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
     "jose": "^5.2.2",
     "next": "14.1.1",
     "react": "^18",
