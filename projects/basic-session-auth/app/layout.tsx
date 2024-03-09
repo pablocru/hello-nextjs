@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { plexSans, plexSerif } from '../../common/fonts';
+import { plexSans, plexSerif } from '../../../common/fonts';
 import './ui/global.css';
 
 export const metadata: Metadata = {
