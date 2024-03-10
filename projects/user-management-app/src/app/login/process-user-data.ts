@@ -1,10 +1,9 @@
 import { isEmail, normalizeEmail } from 'validator';
-import { hash } from 'bcrypt';
 
-export async function processUserData (formData: FormData) {
+export function processUserData (formData: FormData) {
   return {
     email: validateAndNormalizeEmail(formData.get('email')),
-    password: await validateAndEncryptPassword(formData.get('password'))
+    password: validateAndEncryptPassword(formData.get('password'))
   };
 }
 
@@ -18,9 +17,9 @@ function validateAndNormalizeEmail (email: String | File | null) {
   return email;
 }
 
-async function validateAndEncryptPassword (password: String | File | null) {
+function validateAndEncryptPassword (password: String | File | null) {
   if (!isFilledStringEntryValue(password)) throw new PasswordNotProvided();
-  return await hash(password, 10);
+  return password;
 }
 
 function isFilledStringEntryValue (

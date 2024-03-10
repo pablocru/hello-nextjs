@@ -18,7 +18,7 @@ export async function signUp (formData: FormData) {
 async function authManager (formData: FormData, type: 'signIn' | 'signUp') {
   const supabase = createClient();
 
-  const userData = await processUserData(formData);
+  const userData = processUserData(formData);
 
   const { error } = type === 'signIn'
     ? await supabase.auth.signInWithPassword(userData)
